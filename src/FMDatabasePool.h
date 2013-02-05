@@ -44,6 +44,7 @@ in the main.m file.
 @property (atomic, retain) NSString *path;
 @property (atomic, assign) id delegate;
 @property (atomic, assign) NSUInteger maximumNumberOfDatabasesToCreate;
+@property (atomic, assign) int dbFlags;
 
 + (id)databasePoolWithPath:(NSString*)aPath;
 - (id)initWithPath:(NSString*)aPath;

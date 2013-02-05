@@ -103,10 +103,11 @@
             }
             
             db = [FMDatabase databaseWithPath:_path];
+            [db setShouldCacheStatements:YES];
         }
         
         //This ensures that the db is opened before returning
-        if ([db open]) {
+        if ([db openWithFlags:self.dbFlags]) {
             if ([_delegate respondsToSelector:@selector(databasePool:shouldAddDatabaseToPool:)] && ![_delegate databasePool:self shouldAddDatabaseToPool:db]) {
                 [db close];
                 db = 0x00;
